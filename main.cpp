@@ -20,7 +20,7 @@ class CursedClass {
 template<typename T>
 void curse(T* cursed) {
 	int* cursed_pointer = reinterpret_cast<int*>(&cursed);
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < sizeof T / sizeof(int); i++) {
 		cursed_pointer[i] = i;
 	}
 }
@@ -31,7 +31,7 @@ int main()
 	CursedClass cursed = *reinterpret_cast<CursedClass*>(cursed_memory);
 	curse(&cursed);
 	int* cursed_pointer = reinterpret_cast<int*>(&cursed);
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < sizeof CursedClass / sizeof(int); i++) {
 		std::cout << *cursed_pointer + i << std::endl;
 	}
 	std::free(cursed_memory);
