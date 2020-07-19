@@ -17,11 +17,19 @@ class CursedClass {
 		int d;
 };
 
+template<typename T>
+void curse(T* cursed) {
+	int* cursed_pointer = reinterpret_cast<int*>(&cursed);
+	for (int i = 0; i < 4; i++) {
+		cursed_pointer[i] = i;
+	}
+}
+
 int main() 
 {
 	char* cursed_memory = static_cast<char*>(std::calloc(1, sizeof CursedClass));
 	CursedClass cursed = *reinterpret_cast<CursedClass*>(cursed_memory);
-	cursed.curse();
+	curse(&cursed);
 	int* cursed_pointer = reinterpret_cast<int*>(&cursed);
 	for (int i = 0; i < 4; i++) {
 		std::cout << *cursed_pointer + i << std::endl;
