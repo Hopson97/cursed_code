@@ -1,8 +1,14 @@
 #include <iostream>
 
+#ifdef _WIN32
+#pragma warning( push )
+#pragma warning( disable : 4789 )
+#endif // _WIN32
+
 class CursedClass {
-	private:
-		int a, b, c, d, e, f;
+	int
+		#include "letters"
+	;
 };
 
 template<typename T>
