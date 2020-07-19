@@ -1,20 +1,8 @@
 #include <iostream>
 
 class CursedClass {
-	public:
-		void curse() 
-		{
-			a = 0;
-			b = 1;
-			c = 2;
-			d = 3;
-		}
-
 	private:
-		int a;
-		int b;
-		int c;
-		int d;
+		int a, b, c, d, e, f;
 };
 
 template<typename T>
