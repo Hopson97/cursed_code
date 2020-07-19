@@ -13,7 +13,7 @@ class CursedClass {
 
 template<typename T>
 void curse(const T* const cursed) {
-	const int* const cursed_pointer = reinterpret_cast<const int* const>(&cursed);
+    const int* const cursed_pointer = reinterpret_cast<const int* const>(&cursed);
     for (int i = 0; i < sizeof T / sizeof(int); i++) {
         *const_cast<int*>(&cursed_pointer[i]) = i;
     }
