@@ -13,8 +13,7 @@ void curse(T* cursed) {
 	}
 }
 
-int main() 
-{
+int main() {
 	char* cursed_memory = static_cast<char*>(std::calloc(1, sizeof CursedClass));
 	CursedClass cursed = *reinterpret_cast<CursedClass*>(cursed_memory);
 	curse(&cursed);
